@@ -1,0 +1,5 @@
+{
+    "_comment": "Entries take the form 'name': {'old_link':'new_link'}",
+    "_comment": "in this way, multiple links can be rewritten to have",
+    "_comment": "the same textual representation, uniformly"
+}
