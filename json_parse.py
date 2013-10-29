@@ -7,4 +7,6 @@ def parse(filename):
     def remove_comments(dct):
         dct.pop('_comment',None)
         return dct
-    return json.load(filename,object_hook=remove_comments)
+    with open(filename) as f:
+        return json.load(f,object_hook=remove_comments)
+    raise IOError("Could not read file " + filename)

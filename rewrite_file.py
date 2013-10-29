@@ -8,7 +8,11 @@ from os.path import join as pjoin
 import json_parse
 
 def rewrite_and_save(filename,mappings=None,new_filename=None):
-    parsed_html = lxml.html.parse(filename)
+    parsed_html = None
+    with open(filename) as f:
+        parsed_html = lxml.html.parse(f)
+    if not parsed_html:
+        raise IOError("Could not read file " + filename)
     if not new_filename:
         new_filename = pjoin('/tmp/',filename)
     if not mappings:
